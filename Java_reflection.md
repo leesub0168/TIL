@@ -80,6 +80,9 @@ public class DynamicTest {
         System.out.println("a = " + a + " , b = " + b );
     }
 }
+```
+```java
+package com.test.alg;
 
 public class Main {
     public static void main(String[] args) throws Exception {
