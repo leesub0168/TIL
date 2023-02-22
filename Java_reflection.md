@@ -100,7 +100,7 @@ public class Main {
         
         // 파라미터가 없는 생성자를 이용할 경우
         Class test2 = Class.forName("com.test.reflect.DynamicTest");
-        Constructor ct2= test2.getConstructor();
+        Constructor ct2= test2.getConstructor(); // 클래스의 생성자를 얻어온다.
         Object obj2 = ct2.newInstance(); //해당 클래스의 생성자로 인스턴스를 생성. 생성자의 출력문이 출력됨을 확인할 수 있음.
     }
 }
