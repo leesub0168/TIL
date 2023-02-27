@@ -2,35 +2,38 @@
 # SOLID
 객체지향의 5대 원칙
 
-# 단일 책임 원칙 (Single Responsibility Principle) 
+## 1. 단일 책임 원칙 (Single Responsibility Principle) 
 ```
     한 클래스는 하나의 책임만을 가져야한다는 원칙으로,
     하나의 클래스는 하나의 기능을 담당해야 한다는 의미이다.
+    
     프로그램의 유지보수성을 높여줄 수 있는 원칙이다.
 ```
-# 개방 폐쇄 원칙 (Open Closed Principle)
+## 2. 개방 폐쇄 원칙 (Open Closed Principle)
 ```
     확장에는 열려있고, 수정-변경에는 닫혀있어야 한다는 원칙으로,
     기존의 코드는 잘 변경하지 않으면서도 확장에는 용이해야한다는 의미이다.
+    
     Spring에서는 DI를 통해, OCP 원칙을 지킬 수 있도록 지원해준다.
 ```
-# 리스코프 치환 원칙 (Liskov Substitution Principle)
+## 3. 리스코프 치환 원칙 (Liskov Substitution Principle)
 ```
     서브 타입은 언제나 기반 타입으로 교체할 수 있어야 한다는 원칙으로,
     자식 클래스는 부모 클래스의 행위를 보장해야한다는 의미이다. 
+    
     객체지향의 다형성을 의미한다.
     
     가장 대표적인것이 자바의 컬렉션 프레임 워크로, 
     ArrayList를 쓰다가 LinkedList로 교체해도 기본적인 메소드의 사용을 보장받을 수 있다. 
     이 점이 바로 리스코프 치환 원칙을 잘 지킨 사례라고 볼 수 있음.
 ```
-# 인터페이스 분리 원칙 (Interface Segregation Principle)
+## 4. 인터페이스 분리 원칙 (Interface Segregation Principle)
 ```
     인터페이스를 사용에 맞게끔 각자 분리해야 한다는 원칙으로, 인터페이스의 단일 책임을 강조한 원칙이다.
     하나의 공통적인 인터페이스 보다 구체적인 여러개의 인터페이스를 만드는것이 낫다는 의미로,
     인터페이스를 분리함으로써 클라이언트는 자신의 목적과 용도에 적합한 기능만을 구현할 수 있다.
 ```
-# 의존관계 역전 원칙 (Dependency Inversion Principle)
+## 5. 의존관계 역전 원칙 (Dependency Inversion Principle)
 ```
     구현 클래스에 의존하지 말고 인터페이스에 의존해야 한다는 원칙으로,
     객체간의 결합도를 낮추는 것이 해당 원칙의 중요한 점이다.
