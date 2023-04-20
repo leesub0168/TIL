@@ -30,6 +30,7 @@ ORM 기술의 중요성이 대두되기전에는 주로 SQL 중심적인 개발�
 
 ### JPA의 엔티티 생명주기
 <img src="/img/entity_life_cycle.png">
+
 - New : 비영속. 새로 생성된 상태.
 - Managed : 영속. 영속성 컨텍스트에 의해 관리되는 상태
 - detached : 준영속. 영속성 컨텍스트에 관리되다가 분리된 상태
