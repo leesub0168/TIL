@@ -26,11 +26,11 @@ ORM 기술의 중요성이 대두되기전에는 주로 SQL 중심적인 개발�
 ## 영속성 컨텍스트
 영속성 컨텍스트란 논리적인 개념으로, 엔티티를 영구 저장하는 환경이라고 보면 된다. EntityManager를 통해 영속성 컨텍스트에 접근할 수 있다.
 - `영속성 컨텍스트의 이점`
-  - 1차 캐시 : 객체를 persist()하거나, find면 영속성 컨텍스트의 1차 캐시에 저장된다. 이후 동일한 트랜잭션 내에서 1차 캐시에 있는 객체를 조회하는 경우 DB에 쿼리를 날리지 않고 1차 캐시에 있는 정보를 가져온다.  <br>![img.png](img.png)
-  - 동일성(identity) 보장 : 동일한 트랜잭션 내에서 같은 객체를 조회해오는 경우, 동일한 객체임을 보장한다.<br>![img_1.png](/img/img_1.png)
-  - 트랜잭션을 지원하는 쓰기 지연(Transactional write-behind) : 객체를 여러개 persist() 하는 경우 트랜잭션이 커밋되기전까진 데이터베이스에 SQL을 날리지 않는다. <br> ![img_2.png](img_2.png)
+  - 1차 캐시 : 객체를 persist()하거나, find면 영속성 컨텍스트의 1차 캐시에 저장된다. 이후 동일한 트랜잭션 내에서 1차 캐시에 있는 객체를 조회하는 경우 DB에 쿼리를 날리지 않고 1차 캐시에 있는 정보를 가져온다.  <br>![jpa_first_cache.png](/img/jpa_first_cache.png)
+  - 동일성(identity) 보장 : 동일한 트랜잭션 내에서 같은 객체를 조회해오는 경우, 동일한 객체임을 보장한다.<br>![jpa_identity.png](/img/jpa_identity.png)
+  - 트랜잭션을 지원하는 쓰기 지연(Transactional write-behind) : 객체를 여러개 persist() 하는 경우 트랜잭션이 커밋되기전까진 데이터베이스에 SQL을 날리지 않는다. <br> ![jpa_transactional_write_behind.png](/img/jpa_transactional_write_behind.png)
   - 지연 로딩(Lazy Loading)
-  - 변경 감지(Dirty Checking) : 객체를 조회하여 수정하는 경우, 따로 update를 하지 않아도 트랜잭션이 커밋되는 순간 객체의 변경된 부분을 감지하여 데이터베이스에 UPDATE 한다. <br> ![img_3.png](img_3.png)
+  - 변경 감지(Dirty Checking) : 객체를 조회하여 수정하는 경우, 따로 update를 하지 않아도 트랜잭션이 커밋되는 순간 객체의 변경된 부분을 감지하여 데이터베이스에 UPDATE 한다. <br> ![jpa_dirty_checking.png](/img/jpa_dirty_checking.png)
 
 ### JPA의 엔티티 생명주기
 <img src="/img/entity_life_cycle.png">
