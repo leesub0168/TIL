@@ -1,5 +1,3 @@
-2023/02/17 과제 구현 관계로 TIL로 대체 
-
 # WAS(Web Application Server)
 동적인 처리를 위한 미들웨어로, 클라이언트의 Request를 해석하여 요청에 맞는 서블릿을 탐색하고, 요청에 맞는 데이터를 클라이언트에게 response로 전달한다
 WAS는 일반적으로 Servlet Container + Servlet 구조를 얘기하지만, Java에서 주로 사용하는 최신 버전 톰캣의 경우 Apache Tomcat으로, WebServer인 Apache까지 포함한 개념이라고 볼수있다.
