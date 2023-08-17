@@ -20,6 +20,6 @@ StringBuilder와 마찬가지로 가변적인 특징을 가지고 있어 문자�
 단일 스레드의 환경임을 가정했을 경우 StringBuffer는 추가나 삭제등의 연산을 수행할 때 Synchronized 처리를 매번 수행하기때문에<br>
 Synchronized 처리가 안된 StringBuilder를 사용하는 것이 성능면에서 이점을 얻을 수 있다.
 |   |String |StringBuilder   | StringBuffer   |
-|---|---|---|---|
+|---|:-:|:-:|:-:|
 |다중 스레드 지원여부| O | X | O |
 |불변 여부| O | X | X |
