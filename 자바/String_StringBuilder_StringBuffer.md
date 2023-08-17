@@ -12,7 +12,7 @@
 
 # StringBuffer
 StringBuilder와 마찬가지로 가변적인 특징을 가지고 있어 문자열의 삭제, 추가에 적합한 클래스이다.<br>
-다만 멀티스레드를 지원하지 않는 StringBuilder와 달리 StringBuffer의 경우 Synchronized 처리를 통해 멀티스레드 환경에서도 정상적인 동작을 보장한다.
+다만 멀티스레드를 지원하지 않는 StringBuilder와 달리 StringBuffer의 경우 Synchronized 처리를 통해 멀티스레드 환경에서도 정상적인 동작을 보장한다.<br>
 ![stringbuffer](../img/stringbuffer.png)
 
 ## StringBuilder vs StringBuffer
