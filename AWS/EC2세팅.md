@@ -1,7 +1,7 @@
 # AWS - EC2 세팅 
 
 ## EC2란?
-: EC2란 Elastic Coumpute Cloud의 약자로, AWS에서 제공하는 일종의 서버 입니다. 성능과 용량을 유동적으로 선택할 수 있으며<br>
+: EC2란 Elastic Coumpute Cloud의 약자로, AWS의 클라우드를 기반으로 하는 확장과 축소가 자유로운 컴퓨팅 서비스 입니다. 성능과 용량을 유동적으로 선택할 수 있으며<br>
 리눅스, 윈도우 등 운영체제부터 서버의 용량까지 사용자가 원하는 대로 선택하여 생성할 수 있습니다. 
 
 ## EC2 생성
@@ -59,4 +59,5 @@
 
 
 ### References
-스프링 부트와 AWS로 혼자 구현하는 웹 서비스 - 이동욱님
+스프링 부트와 AWS로 혼자 구현하는 웹 서비스 - 이동욱님<br>
+[What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
