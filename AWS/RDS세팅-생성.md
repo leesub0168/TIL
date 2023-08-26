@@ -1,8 +1,7 @@
 # AWS - RDS 세팅(생성)
 
 ## RDS란?
-: Relational Database Service(RDS)의 약자로, Amazon에서 제공하는 클라우드에서 간편하게 데이터베이스를 설치, 운영 및 확장할 수 있는 관리형 서비스입니다. <br>
-Amazon Aurora(MySQL 호환), Amazon Aurora(PostgreSQL 호환), MySQL, MariaDB, PostgreSQL, Oracle 등 원하는 데이터베이스 엔진을 선택하여 생성할 수 있습니다.
+: Relational Database Service(RDS)의 약자로, Amazon에서 제공하는 클라우드에서 간편하게 데이터베이스를 설치, 운영 및 확장할 수 있는 관리형 서비스입니다. Amazon Aurora(MySQL 호환), Amazon Aurora(PostgreSQL 호환), MySQL, MariaDB, PostgreSQL, Oracle 등 원하는 데이터베이스 엔진을 선택하여 생성할 수 있습니다.
 
 ## RDS 생성
 1. AWS 서비스 가입 후, RDS 서비스를 검색 -> RDS 대시보드에 있는 데이터베이스 생성을 클릭합니다.
