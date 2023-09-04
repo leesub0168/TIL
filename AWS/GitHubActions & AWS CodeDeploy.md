@@ -1,11 +1,51 @@
 # GitHub-Actions 과 AWS CodeDeploy 를 이용한 CI/CD 구축
 : GitHub-Actions과 AWS CodeDeploy를 이용하여 CI/CD 환경을 구축하기 위해서는 다음과 같은 세팅이 필요합니다. 
 1. 어플리케이션이 실행될 EC2에 AWS CodeDeploy Agent 설치
-2. AWS CodeDeploy 생성
-3. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
-4. GitHub-Actions 을 위한 role 생성
-5. AWS CodeDeploy 를 위한 role 생성 
+2. AWS CodeDeploy 를 위한 role 생성
+3. AWS CodeDeploy 생성
+4. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
+5. GitHub-Actions 을 위한 role 생성
 
+
+## 1. EC2에 AWS CodeDeploy Agent 설치
+1. EC2 터미널에 접속한 후, `sudo yum update`로 먼저 패키지를 업데이트 하고 `sudo yum install ruby` 명령어로 루비를 설치합니다.
+
+![](../img/aws/ec2-codeDeploy-01.png)
+
+2. `sudo yum install wget` 명령어를 실행하고, `cd /home/ec2-user`로 홈 디렉토리로 경로를 이동한 후, `wget https://본인리전의 버킷명.s3.리전-식별자.amazonaws.com/latest/install`<br>
+   리전의 버킷명과 식별자는 해당 링크에서 확인할 수 있습니다. https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names
+3. `chmod +x ./install` -> install 파일에 대한 실행 권한을 설정합니다.
+4. `sudo ./install auto` -> 최신 버전의 CodeDeploy 에이전트 설치
+
+![](../img/aws/ec2-codeDeploy-02.png)
+
+5. `sudo service codedeploy-agent status` -> CodeDeploy 에이전트가 정상적으로 설치되어 실행 중인지 확인, 'The AWS CodeDeploy agent is running' 메시지가 뜨면 정상적으로 설치된 것입니다.
+
+![](../img/aws/ec2-codeDeploy-03.png)
+
+
+## 2. AWS CodeDeploy 를 위한 `역할` 생성
+1.AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
+
+![](../img/aws/aws-role-01.png)
+
+2. 신뢰할 수 있는 엔티티에서 `AWS 서비스`를 선택하고, `CodeDeploy`를 검색하여 선택한 후 `다음`을 클릭합니다.
+
+![](../img/aws/aws-role-02.png)
+
+3. 세팅 된 권한을 확인하고 `다음`을 클릭합니다.
+
+![](../img/aws/aws-role-03.png)
+
+4. 의미있는 이름으로 역할 이름을 입력하고, 역할을 생성합니다.
+
+![](../img/aws/aws-role-04.png)
+![](../img/aws/aws-role-05.png)
+
+
+## 3. AWS S3 생성
+
+## 4. role 생성
 
 ## AWS CodeDeploy 설정하기
 
@@ -100,3 +140,4 @@ jobs:
 ### References
 [Spring(Gradle)/MySQL + github action + AWS(S3, EC2, CodeDeploy) 사용하여 CI/CD 구축하기](https://velog.io/@donghokim1998/SpringMySQL-github-action-AWSS3-EC2-CodeDeploy-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-CICD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0#12-codedeploy-%EC%83%9D%EC%84%B1) <br>
 [Github Action과 AWS CodeDeploy를 사용한 CI/CD 구축 방법](https://chae528.tistory.com/100)
+[CodeDeploy 에이전트 설치](https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install.html)
