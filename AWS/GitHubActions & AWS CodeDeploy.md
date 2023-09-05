@@ -1,10 +1,13 @@
 # GitHub-Actions 과 AWS CodeDeploy 를 이용한 CI/CD 구축
 : GitHub-Actions과 AWS CodeDeploy를 이용하여 CI/CD 환경을 구축하기 위해서는 다음과 같은 세팅이 필요합니다. 
 1. 어플리케이션이 실행될 EC2에 AWS CodeDeploy Agent 설치
-2. AWS CodeDeploy 를 위한 role 생성
-3. AWS CodeDeploy 생성
-4. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
-5. GitHub-Actions 을 위한 role 생성
+2. AWS CodeDeploy 를 위한 역할 생성
+3. EC2에 S3에 접근할 수 있는 역할 생성하여 세팅
+4. AWS CodeDeploy 생성
+5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
+6. GitHub-Actions 을 위한 역할 생성
+7. GitHub-Actions 생성
+8. AWS - 자격 증명 공급자 추가 
 
 
 ## 1. EC2에 AWS CodeDeploy Agent 설치
@@ -12,7 +15,7 @@
 
 ![](../img/aws/ec2-codeDeploy-01.png)
 
-2. `sudo yum install wget` 명령어를 실행하고, `cd /home/ec2-user`로 홈 디렉토리로 경로를 이동한 후, `wget https://본인리전의 버킷명.s3.리전-식별자.amazonaws.com/latest/install`<br>
+2. `sudo yum install wget` 명령어를 실행하고, `cd /home/ec2-user`로 홈 디렉토리로 경로를 이동한 후, <br> `wget https://본인리전의 버킷명.s3.리전-식별자.amazonaws.com/latest/install`
    리전의 버킷명과 식별자는 해당 링크에서 확인할 수 있습니다. https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names
 3. `chmod +x ./install` -> install 파일에 대한 실행 권한을 설정합니다.
 4. `sudo ./install auto` -> 최신 버전의 CodeDeploy 에이전트 설치
@@ -24,7 +27,7 @@
 ![](../img/aws/ec2-codeDeploy-03.png)
 
 
-## 2. AWS CodeDeploy 를 위한 `역할` 생성
+## 2. AWS CodeDeploy 를 위한 역할 생성
 1.AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
 
 ![](../img/aws/aws-role-01.png)
@@ -42,12 +45,42 @@
 ![](../img/aws/aws-role-04.png)
 ![](../img/aws/aws-role-05.png)
 
+## 3. EC2에서 S3에 접근할 수 있는 역할 생성 & 할당
 
-## 3. AWS S3 생성
+1. 위에서 했던 것과 동일하게 AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
 
-## 4. role 생성
+![](../img/aws/aws-role-01.png)
 
-## AWS CodeDeploy 설정하기
+2. 이번에는 `AWS 서비스`를 선택한 후 `EC2`를 선택하여 `다음`을 클릭합니다.
+
+![](../img/aws/aws-role-06.png)
+
+3. 그리고 EC2에서 S3에 접근할 수 있도록 `AmazonS3FullAccess` 권한을 검색하여 선택한 뒤 `다음`을 클릭합니다.
+
+![](../img/aws/aws-role-07.png)
+
+4. 역할에 대한 의미있는 이름을 입력하고 역할을 생성합니다.
+
+![](../img/aws/aws-role-08.png)
+
+5. EC2 대시보드 화면으로 이동하여 역할을 부여할 EC2 인스턴스를 선택하고, `작업` -> `보안` -> `IAM 역할 수정`을 클릭합니다.
+
+![](../img/aws/aws-role-09.png)
+
+6. IAM 역할에서 위에서 추가한 역할을 선택하고 `IAM 역할 업데이트`를 클릭합니다.
+
+![](../img/aws/aws-role-10.png)
+
+7. 연결 완료 메세지가 뜨면 역할이 정상적으로 연결된 것으로 이제 EC2에서 S3에 정상적으로 접근할 수 있습니다.
+
+![](../img/aws/aws-role-11.png)
+
+
+## 4. AWS CodeDeploy 생성
+
+## 5. AWS S3 생성
+
+## 6. GitHub-Actions 을 위한 역할 생성
 
 
 ## GitHub-Actions 설정하기 
