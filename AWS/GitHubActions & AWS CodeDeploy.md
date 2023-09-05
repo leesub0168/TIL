@@ -28,7 +28,7 @@
 
 
 ## 2. AWS CodeDeploy 를 위한 역할 생성
-1.AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
+1. AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
 
 ![](../img/aws/aws-role-01.png)
 
@@ -127,7 +127,7 @@
 
 ![](../img/aws/github-actions-02.png)
 
-3. dsfgsdg
+3. 
 
 ```yaml
 # This workflow uses actions that are not certified by GitHub.
