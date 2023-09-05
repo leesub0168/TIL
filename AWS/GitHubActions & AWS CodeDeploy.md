@@ -3,7 +3,7 @@
 1. 어플리케이션이 실행될 EC2에 AWS CodeDeploy Agent 설치
 2. AWS CodeDeploy 를 위한 역할 생성
 3. EC2에 S3에 접근할 수 있는 역할 생성하여 세팅
-4. AWS CodeDeploy 생성
+4. AWS CodeDeploy 생성 & 배포그룹 생성
 5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
 6. GitHub-Actions 을 위한 역할 생성
 7. GitHub-Actions 생성
@@ -76,7 +76,41 @@
 ![](../img/aws/aws-role-11.png)
 
 
-## 4. AWS CodeDeploy 생성
+## 4. AWS CodeDeploy 생성 & 배포그룹 생성 
+1. AWS 서비스중 CodeDeploy를 검색하여 애플리케이션 생성을 클릭합니다.
+
+![](../img/aws/aws-codedeploy-01.png)
+
+2. 의미있는 deploy 애플리케이션 이름을 입력하고 컴퓨팅 플랫폼은 EC2/온프레미스를 선택하여 `애플리케이션 생성`을 클릭합니다.
+
+![](../img/aws/aws-codedeploy-02.png)
+
+3. 그러면 애플리케이션이 생성되었다는 메세지가 뜨는 것을 확인할 수 있습니다.
+
+![](../img/aws/aws-codedeploy-03.png)
+
+4. 다음으로는 배포를 위한 배포그룹을 생성해야 합니다. 위에서 생성한 deploy 애플리케이션으로 들어가서 `배포 그룹` -> `배포 그룹 생성`을 클릭합니다.
+
+![](../img/aws/aws-codedeploy-04.png)
+
+5. 배포 그룹 이름을 입력하고, 위에서 생성한 AWS CodeDeploy를 위한 역할을 서비스 역할에 입력합니다. 그리고 배포 방법은 `현재 위치`로 선택합니다. 
+
+![](../img/aws/aws-codedeploy-05.png)
+
+6. 환경 구성은 `Amazon EC2 인스턴스`를 클릭하고 원하는 EC2의 태그 그룹 키값을 입력합니다. 
+   - EC2의 태그는 EC2 > 인스턴스 > 애플리케이션 > 태그 > 태그 관리에서 추가할 수 있습니다.
+
+![](../img/aws/aws-codedeploy-06.png)
+
+7. AWS CodeDeploy 에이전트의 최신버전 유지를 위해 14일 주기로 업데이트 되도록 설정했고, 배포 구성은 `AllAtOnce`로 설정했습니다.<br>
+   저의 경우 로드 밸런싱을 하지 않는 환경이므로 `로드 밸런싱 활성화`는 체크 해제 후 `배포 그룹 생성`을 클릭하면 됩니다.
+   - 배포 구성에 대한 설명은 해당 링크를 참조하시면 됩니다. https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/deployment-configurations.html
+
+![](../img/aws/aws-codedeploy-07.png)
+
+8. 배포 그룹 생성 메세지가 뜨면 성공 적으로 생성 된 것입니다.
+
+![](../img/aws/aws-codedeploy-08.png)
 
 ## 5. AWS S3 생성
 
