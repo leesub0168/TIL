@@ -113,6 +113,21 @@
 ![](../img/aws/aws-codedeploy-08.png)
 
 ## 5. AWS S3 생성
+1. AWS CodeDeploy 는 말그대로 배포를 담당하는 애플리케이션이기때문에 빌드를 통해 생성된 jar 파일을 저장할 저장소를 갖고 있지 않습니다. 따라서 jar 파일을 저장해 놓을 스토리지인 AWS S3가 필요합니다. <br>
+   S3를 생성하기 위해서는 AWS 콘솔에 로그인 > S3 검색 > 버킷 만들기를 클릭합니다.
+
+![](../img/aws/aws-s3-01.png)
+
+2. 버킷의 이름을 입력하고 리전은 EC2가 위치한 리전과 동일한 리전으로 선택해줍니다. 객체의 소유권은 기본 세팅된 옵션인 `ACL 비활성화됨` 으로 선택합니다.
+
+![](../img/aws/aws-s3-02.png)
+
+3. 해당 스토리지는 빌드 파일을 업로드하는 용도이기때문에 외부에서 접근할 수 없도록 `모든 퍼블릭 액세스 차단`을 선택하고, 버전 관리도 `비활성화`로 선택합니다.
+
+![](../img/aws/aws-s3-03.png)
+
+4. 암호화 세팅은 `SSE-S3를 사용한 서버측 암호화`를 선택하고 버킷키는 `비활성화`를 선택했습니다. 마지막으로 `버킷 만들기`를 클릭하면 S3가 생성됩니다.
+![](../img/aws/aws-s3-04.png)
 
 ## 6. GitHub-Actions 을 위한 역할 생성
 
@@ -206,5 +221,5 @@ jobs:
 
 ### References
 [Spring(Gradle)/MySQL + github action + AWS(S3, EC2, CodeDeploy) 사용하여 CI/CD 구축하기](https://velog.io/@donghokim1998/SpringMySQL-github-action-AWSS3-EC2-CodeDeploy-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-CICD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0#12-codedeploy-%EC%83%9D%EC%84%B1) <br>
-[Github Action과 AWS CodeDeploy를 사용한 CI/CD 구축 방법](https://chae528.tistory.com/100)
+[Github Action과 AWS CodeDeploy를 사용한 CI/CD 구축 방법](https://chae528.tistory.com/100) <br>
 [CodeDeploy 에이전트 설치](https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install.html)
