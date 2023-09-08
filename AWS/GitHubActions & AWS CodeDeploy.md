@@ -2,7 +2,7 @@
 : GitHub-Actions과 AWS CodeDeploy를 이용하여 CI/CD 환경을 구축하기 위해서는 다음과 같은 세팅이 필요합니다. 
 1. 어플리케이션이 실행될 EC2에 AWS CodeDeploy Agent 설치
 2. AWS CodeDeploy 를 위한 역할 생성
-3. EC2에 S3에 접근할 수 있는 역할 생성하여 세팅
+3. EC2에서 S3에 접근할 수 있는 역할 생성 & 할당
 4. AWS CodeDeploy 생성 & 배포그룹 생성
 5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
 6. GitHub-Actions 을 위한 역할 생성
@@ -112,7 +112,7 @@
 
 ![](../img/aws/aws-codedeploy-08.png)
 
-## 5. AWS S3 생성
+## 5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
 1. AWS CodeDeploy 는 말그대로 배포를 담당하는 애플리케이션이기때문에 빌드를 통해 생성된 jar 파일을 저장할 저장소를 갖고 있지 않습니다. 따라서 jar 파일을 저장해 놓을 스토리지인 AWS S3가 필요합니다. <br>
    S3를 생성하기 위해서는 AWS 콘솔에 로그인 > S3 검색 > 버킷 만들기를 클릭합니다.
 
@@ -132,7 +132,7 @@
 ## 6. GitHub-Actions 을 위한 역할 생성
 
 
-## GitHub-Actions 설정하기 
+## 7. GitHub-Actions 생성
 1. 
 
 
@@ -143,6 +143,9 @@
 ![](../img/aws/github-actions-02.png)
 
 3. 
+
+## 8. AWS - 자격 증명 공급자 추가
+
 
 ```yaml
 # This workflow uses actions that are not certified by GitHub.
