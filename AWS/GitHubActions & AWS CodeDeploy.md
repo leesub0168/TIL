@@ -5,7 +5,7 @@
 3. EC2에서 S3에 접근할 수 있는 역할 생성 & 할당
 4. AWS CodeDeploy 생성 & 배포그룹 생성
 5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
-6. GitHub-Actions 을 위한 역할 생성
+6. GitHub-Actions - AWS Credentials 을 위한 자격 증명 공급자, 역할 생성
 7. GitHub-Actions 생성
 8. AWS - 자격 증명 공급자 추가 
 
@@ -129,8 +129,12 @@
 4. 암호화 세팅은 `SSE-S3를 사용한 서버측 암호화`를 선택하고 버킷키는 `비활성화`를 선택했습니다. 마지막으로 `버킷 만들기`를 클릭하면 S3가 생성됩니다.
 ![](../img/aws/aws-s3-04.png)
 
-## 6. GitHub-Actions 을 위한 역할 생성
+## 6. GitHub-Actions - AWS Credentials 을 위한 자격 증명 공급자, 역할 생성
+: 보통 GitHub-Actions을 이용하여 CI,CD를 구현하는 경우 AWS의 `사용자`를 생성하여 권한을 설정한 후 인증을 받도록 하는 경우가 많은데 `사용자`를 사용하는 방법의 경우 <br>
+Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 때문에 비교적 안전한 `자격 증명 공급자`와 `역할`을 이용하여 GitHub-Actions 빌드, 배포 세팅을 하였습니다.
 
+1. sdgd
+2. sdg
 
 ## 7. GitHub-Actions 생성
 1. 
@@ -225,4 +229,6 @@ jobs:
 ### References
 [Spring(Gradle)/MySQL + github action + AWS(S3, EC2, CodeDeploy) 사용하여 CI/CD 구축하기](https://velog.io/@donghokim1998/SpringMySQL-github-action-AWSS3-EC2-CodeDeploy-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-CICD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0#12-codedeploy-%EC%83%9D%EC%84%B1) <br>
 [Github Action과 AWS CodeDeploy를 사용한 CI/CD 구축 방법](https://chae528.tistory.com/100) <br>
-[CodeDeploy 에이전트 설치](https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install.html)
+[CodeDeploy 에이전트 설치](https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/codedeploy-agent-operations-install.html) <br>
+[Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) <br>
+
