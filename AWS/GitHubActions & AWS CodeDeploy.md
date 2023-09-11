@@ -133,8 +133,6 @@
 : 보통 GitHub-Actions을 이용하여 CI,CD를 구현하는 경우 AWS의 `사용자`를 생성하여 권한을 설정한 후 인증을 받도록 하는 경우가 많은데 `사용자`를 사용하는 방법의 경우 <br>
 Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 때문에 비교적 안전한 `자격 증명 공급자`와 `역할`을 이용하여 GitHub-Actions 빌드, 배포 세팅을 하였습니다.
 
-1. sdgd
-2. sdg
 
 ## 7. GitHub-Actions 생성
 1. 
