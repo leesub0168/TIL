@@ -7,7 +7,6 @@
 5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
 6. GitHub-Actions - AWS Credentials 을 위한 자격 증명 공급자, 역할 생성
 7. GitHub-Actions 생성
-8. AWS - 자격 증명 공급자 추가 
 
 
 ## 1. EC2에 AWS CodeDeploy Agent 설치
@@ -133,6 +132,41 @@
 : 보통 GitHub-Actions을 이용하여 CI,CD를 구현하는 경우 AWS의 `사용자`를 생성하여 권한을 설정한 후 인증을 받도록 하는 경우가 많은데 `사용자`를 사용하는 방법의 경우 <br>
 Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 때문에 비교적 안전한 `자격 증명 공급자`와 `역할`을 이용하여 GitHub-Actions 빌드, 배포 세팅을 하였습니다.
 
+1. 먼저 `자격 증명 공급자`를 생성해야합니다. `IAM` > `자격 증명 공급자`로 이동하여 `공급자 추가`를 클릭합니다.
+
+![](../img/aws/aws-iam-01.png)
+
+2. 공급자 유형은 `OpenID Connect`를 선택하고 공급자 URL은 `https://token.actions.githubusercontent.com`을 입력하고 `지문 가져오기`를 클릭합니다.<br>
+   그리고 해당 자격 증명에 대한 대상으로 `sts.amazonaws.com`을 입력한 후 `공급자 추가`를 클릭합니다.
+
+![](../img/aws/aws-iam-02.png)
+
+3. 자격 증명 공급자가 제대로 생성되었음을 확인할 수 있습니다.
+
+![](../img/aws/aws-iam-03.png)
+
+4. 이제 GitHub-Actions을 위한 역할을 생성해야합니다. `IAM` > `역할`로 이동하여 `역할 만들기`를 클릭합니다.
+
+![](../img/aws/aws-iam-03-1.png)
+
+5. 엔티티 유형은 `웹 자격 증명`을 선택하시고, 자격 증명 공급자는 위에서 추가했던 `token.actions.githubusercontent.com`을 선택합니다. Audience는 `sts.amazonaws.com` 을 선택하시면 되고 <br>
+   Github 조직은 본인의 github repository명을 입력해주면 됩니다. 그리고 `다음`을 클릭합니다.
+
+![](../img/aws/aws-iam-04.png)
+
+6. 권한은 `AmazonS3FullAccess`와 `AWSCodeDeployFullAccess`를 선택하신 후 `다음`을 클릭하시면 됩니다.
+
+![](../img/aws/aws-iam-05.png)
+![](../img/aws/aws-iam-06.png)
+
+7. 역할의 이름을 입력하신 후 권한 내용을 확인하시고 `역할 생성`을 클릭하시면 됩니다. <br>
+   ※ 주의할 점은 신뢰 정책에 `Federated` 부분에 이전에 추가한 자격 증명 공급자의 ARN 값이 세팅되어있는지 확인하셔야합니다.
+
+![](../img/aws/aws-iam-07.png)
+
+8. 역할이 정상적으로 생성되었는지 확인하시면 됩니다. 
+
+![](../img/aws/aws-iam-08.png)
 
 ## 7. GitHub-Actions 생성
 1. 
@@ -145,8 +179,6 @@ Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 �
 ![](../img/aws/github-actions-02.png)
 
 3. 
-
-## 8. AWS - 자격 증명 공급자 추가
 
 
 ```yaml
