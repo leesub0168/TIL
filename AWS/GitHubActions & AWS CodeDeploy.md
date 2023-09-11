@@ -1,12 +1,12 @@
 # GitHub-Actions 과 AWS CodeDeploy 를 이용한 CI/CD 구축
 : GitHub-Actions과 AWS CodeDeploy를 이용하여 CI/CD 환경을 구축하기 위해서는 다음과 같은 세팅이 필요합니다. 
 1. [어플리케이션이 실행될 EC2에 AWS CodeDeploy Agent 설치](#1-ec2에-aws-codedeploy-agent-설치)
-2. [AWS CodeDeploy 를 위한 역할 생성](#2)
-3. EC2에서 S3에 접근할 수 있는 역할 생성 & 할당
-4. AWS CodeDeploy 생성 & 배포그룹 생성
-5. GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성
-6. GitHub-Actions - AWS Credentials 을 위한 자격 증명 공급자, 역할 생성
-7. GitHub-Actions 생성
+2. [AWS CodeDeploy 를 위한 역할 생성](#2-aws-codedeploy-를-위한-역할-생성)
+3. [EC2에서 S3에 접근할 수 있는 역할 생성 & 할당](#3-ec2에서-s3에-접근할-수-있는-역할-생성-&-할당)
+4. [AWS CodeDeploy 생성 & 배포그룹 생성](#4-aws-codedeploy-생성-&-배포그룹-생성)
+5. [GitHub-Actions 으로 빌드한 파일을 업로드할 AWS S3 생성](#5-github-actions-으로-빌드한-파일을-업로드할-aws-s3-생성)
+6. [GitHub-Actions - AWS Credentials 을 위한 자격 증명 공급자, 역할 생성](#6-github-actions---aws-credentials-을-위한-자격-증명-공급자-역할-생성)
+7. [GitHub-Actions 생성](#7-github-actions-생성)
 
 ## 1. EC2에 AWS CodeDeploy Agent 설치 
 1. EC2 터미널에 접속한 후, `sudo yum update`로 먼저 패키지를 업데이트 하고 `sudo yum install ruby` 명령어로 루비를 설치합니다.
@@ -26,7 +26,6 @@
 
 
 ## 2. AWS CodeDeploy 를 위한 역할 생성
-#2
 1. AWS 콘솔화면에서 `IAM` -> `역할` -> `역할만들기`를 클릭합니다.
 
 ![](../img/aws/aws-role-01.png)
