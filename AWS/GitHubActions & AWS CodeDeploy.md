@@ -167,17 +167,19 @@ Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 �
 
 ![](../img/aws/aws-iam-08.png)
 
-## 7. GitHub-Actions 생성
-1. 
 
+## 7. GitHub-Actions 생성
+
+
+1. CI/CD를 구축할 프로젝트의 GitHub 리포지토리에 접속하여, `Actions` 탭을 클릭하고 프로젝트의 세팅에 적합한 유형을 선택합니다. 저의 경우 프로젝트에 Java와 Gradle을 사용했기 때문에 해당 유형을 선택합니다.
 
 ![](../img/aws/github-actions-01.png)
 
-2. 
+2. GitHub-Actions을 사용하기 위해서는 프로젝트내에 `/.github/workflows` 패키지를 생성하고, 해당 패키지에 `yaml` 파일을 생성해줘야합니다. 위에서 `Actions` 탭에서 유형을 선택하는 경우 자동으로 패키지와 파일을 생성해줍니다.
 
 ![](../img/aws/github-actions-02.png)
 
-3. 
+3. 다음으로는 위에서 생성한 `yaml` 파일에 빌드와 배포를 위한 스크립트 내용을 작성해야합니다.
 
 
 ```yaml
@@ -221,7 +223,7 @@ jobs:
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
       
-    - name: Gradel Clean
+    - name: Gradle Clean
       run: ./gradlew clean
       
     - name: Build with Gradle
