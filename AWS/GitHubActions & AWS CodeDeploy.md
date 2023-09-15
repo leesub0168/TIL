@@ -179,8 +179,8 @@ Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 �
 
 ![](../img/aws/github-actions-02.png)
 
-3. 다음으로는 위에서 생성한 `yaml` 파일에 빌드와 배포를 위한 스크립트 내용을 작성해야합니다.
-
+3. 다음으로는 위에서 생성한 `yaml` 파일에 빌드와 배포를 위한 스크립트 내용을 작성해야합니다. <br>
+   스크립트의 내용은 `on (언제 동작할지)` - `env (환경변수 선언)` - `permissions (권한)` - `jobs (작업)`의 구조로 이루어져있습니다. 스크립트의 내용은 다음과 같습니다.
 
 ```yaml
 # This workflow uses actions that are not certified by GitHub.
@@ -194,8 +194,6 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
 
 env:
