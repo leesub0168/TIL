@@ -193,16 +193,17 @@ Access Key ID와 Secret Access Key 정보의 유출 가능성이 존재하기 �
 name: Java CI with Gradle
 
 on:
-  push:
-    branches: [ "master" ]
+  push: #언제 Actions을 동작할지
+    branches: [ "master" ] # 대상 브랜치
 
 env:
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: house-rent-s3
   CODE_DEPLOY_APPLICATION_NAME: house-rent-deploy
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: house-rent-deploy-agent
-  
-permissions:
+ 
+# 권한  
+permissions:  
   id-token: write
   contents: read
 
@@ -210,30 +211,33 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    steps:
+    steps: # 자바 버전 세팅
     - uses: actions/checkout@v3
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
-        
+
+    # gradle 파일에 실행 권한 추가
     - name: Run chmod to make gradlew executable
       run: chmod +x ./gradlew
-      
+
+    # gradle 빌드전에 clean 작업
     - name: Gradle Clean
       run: ./gradlew clean
-      
+
+    # gradle 빌드
     - name: Build with Gradle
       run: ./gradlew build
     
+    # AWS 인증 세팅
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
         aws-region: ${{env.AWS_REGION}}
         role-to-assume: arn:aws:iam::634903875227:role/sts.amazonaws.com
 
-  # s3 업로드
     # AWS S3에 업로드
     - name: Upload to AWS S3
       run: |
