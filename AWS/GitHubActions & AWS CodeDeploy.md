@@ -13,7 +13,7 @@
 
 ![](../img/aws/ec2-codeDeploy-01.png)
 
-2. `sudo yum install wget` 명령어를 실행하고, `cd /home/ec2-user`로 홈 디렉토리로 경로를 이동한 후, <br> `wget https://본인리전의 버킷명.s3.리전-식별자.amazonaws.com/latest/install`
+2. `sudo yum install wget` 명령어를 실행하고, `cd /home/ec2-user`로 경로를 이동한 후, `wget https://[본인리전의 버킷명].s3.[리전-식별자].amazonaws.com/latest/install`을 입력합니다.
    리전의 버킷명과 식별자는 해당 링크에서 확인할 수 있습니다. https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names
 3. `chmod +x ./install` -> install 파일에 대한 실행 권한을 설정합니다.
 4. `sudo ./install auto` -> 최신 버전의 CodeDeploy 에이전트 설치
