@@ -91,7 +91,7 @@
 
 ![](../img/aws/aws-codedeploy-04.png)
 
-5. 배포 그룹 이름을 입력하고, 위에서 생성한 AWS CodeDeploy를 위한 역할을 서비스 역할에 입력합니다. 그리고 배포 방법은 `현재 위치`로 선택합니다. 
+5. 배포 그룹 이름을 입력하고, 위에서 생성한 AWS CodeDeploy를 위한 역할을 서비스 역할에 입력합니다. 배포 방법은 `현재 위치`로 선택합니다. 
 
 ![](../img/aws/aws-codedeploy-05.png)
 
