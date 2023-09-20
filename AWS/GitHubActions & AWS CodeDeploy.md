@@ -257,7 +257,7 @@ jobs:
 
 ```
 4. yaml 파일까지 세팅이 끝나면 GitHub-Actions 세팅은 완료되며 스크립트에 세팅해놓은 대로 `master` 브랜치에 push가 일어나면 Actions이 동작합니다. push가 일어날 때 마다 `Actions`란에 `workflow`가 하나씩 생성되며 빌드 >  s3 업로드 > deploy의 단계로 job이 동작합니다. <br>
-   모든 단계가 정상적으로 실행 후 완료되면, `workflow`에 초록색의 체크 모양이 표시됩니다. CodeDeploy를 통한 배포가 정상적으로 되었는지 확인하려면 AWS 콘솔에서 배포내역을 확인할 수 있습니다. 
+   모든 단계가 정상적으로 실행된 후 완료되면, `workflow`에 초록색의 체크 모양이 표시됩니다. CodeDeploy를 통한 배포가 정상적으로 되었는지 확인하려면 AWS 콘솔에서 배포내역을 확인할 수 있습니다. 
 
 ![](../img/aws/github-actions-03.png)
 
