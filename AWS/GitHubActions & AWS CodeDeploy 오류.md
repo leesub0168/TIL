@@ -16,3 +16,9 @@ AWS RDS를 사용하는 경우 외부에서 접근하기 위해서는 인바운�
 
 ![](../img/aws/github-actions-error-01.png)
 
+## GitHub-Actions 실행 중 S3 업로드 실패 
+
+![](../img/aws/github-actions-error-04.png)
+
+
+### References
