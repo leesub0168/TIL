@@ -18,7 +18,7 @@ AWS RDS를 사용하는 경우 외부에서 접근하기 위해서는 인바운�
 
 ## GitHub-Actions 실행 중 S3 업로드 실패 
 GitHub-Actions 실행 중 권한 문제로 s3에 빌드 파일 업로드가 실패하는 현상 발생. AWS Credential에 사용된 role의 권한 세팅으로 인해 발생한 현상으로,<br>
-`AmazonS3FullAccess`, `AWSCodeDeployFullAccess` 모두 FullAccess 권한으로 세팅해주면 정상적으로 업로드 된다.
+`AmazonS3FullAccess`, `AWSCodeDeployFullAccess` 모두 FullAccess 권한으로 세팅해주면 정상적으로 업로드 된다. 
 ![](../img/aws/github-actions-error-04.png)
 
 
