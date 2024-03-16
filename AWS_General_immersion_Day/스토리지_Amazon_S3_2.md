@@ -101,3 +101,6 @@
 4. 위의 작업으로 빈 버킷을 만들었다면 1번 작업을 다시 수행합니다. 버킷 이름을 입력하고 Delete bucket 버튼을 누릅니다.
 
 ![](../img/aws/immersion/gid-s3-37.png)
+
+## References
+AWS-General Immersion Day

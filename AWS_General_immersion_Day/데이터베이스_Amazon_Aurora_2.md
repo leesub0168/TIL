@@ -142,3 +142,8 @@ Secret을 생성했다면 이제는 웹 서버에 해당 secret을 사용할 수
 자, 여기까지의 작업을 통해 여러분은 고가용성이 보장된 웹 서비스를 구축하였습니다. 지금까지 구성한 인프라 아키텍처는 아래와 같습니다.
 
 ![](../img/aws/immersion/3-tier-architecture.svg)
+
+
+
+## References
+AWS-General Immersion Day

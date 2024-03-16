@@ -232,3 +232,6 @@ Session Manager는 대화형 원클릭 브라우저 기반 셸 또는 AWS CLI를
 ## 현재까지의 아키텍처 구성
 
 ![](../img/aws/immersion/gid-ec2-32.svg)
+
+## References
+AWS-General Immersion Day

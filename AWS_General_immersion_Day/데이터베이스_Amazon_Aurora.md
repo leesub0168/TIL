@@ -83,3 +83,7 @@ RDS 서비스는 EC2와 동일한 보안 모델을 사용합니다. 가장 일�
 
 ![](../img/aws/immersion/gid-rds-100-1.svg)
 
+
+
+## References
+AWS-General Immersion Day

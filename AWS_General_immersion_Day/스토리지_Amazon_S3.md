@@ -156,3 +156,7 @@ https://{Bucket}.s3.{region}.amazonaws.com/{Object} 와 같은 형식의 URL을 
 9. 이미지를 클릭 시, 생성한 인스턴스 페이지로 리다이렉트 됩니다.
 
 ![](../img/aws/immersion/gid-s3-21.png)
+
+
+## References
+AWS-General Immersion Day
