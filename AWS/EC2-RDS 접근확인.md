@@ -35,8 +35,8 @@
    화면처럼 Welcome 멘트가 나온다면 RDS에 정상적으로 접근된 것입니다.
 
 ![](../img/aws/ec2-rds-07.png)
+  
 
-
-### References
+### References 
 스프링 부트와 AWS로 혼자 구현하는 웹 서비스 - 이동욱님<br>
 [mariadb-installation-issue](https://repost.aws/questions/QUZbE_KKvUTsGORUDoT0YMdQ/mariadb-installation-issue-in-amazon-linux-ec2-instance)
